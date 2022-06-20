@@ -18,21 +18,28 @@ Uma API de entrega de pedidos
 
 ## Rotas
 
-`POST` /client - recebe o `username` e `password` pelo corpo da requisição, cria um novo usuário e retornar o usuário criado
+### Authenticate
 
-`GET` /client/deliveries - exige um Bearer token do usuário e retornar todos os deliveries do usuário
+- `POST` /client/authenticate - recebe o `username` e `password` pelo corpo da requisição, e cria um token de autentição do usuário.
+- `POST` /deliveryman/authenticate - recebe o `username` e `password` pelo corpo da requisição, e cria um token de autentição do entregador.
 
-`POST` /client/authenticate - recebe o `username` e `password` pelo corpo da requisição, e cria um token de autentição do usuário.
+### Client 
 
-`POST` /deliveryman - recebe o `username` e `password` pelo corpo da requisição, cria um novo entregador e retornar o entregador criado
+- `POST` /client - recebe o `username` e `password` pelo corpo da requisição, cria um novo usuário e retornar o usuário criado
 
-`GET` /deliveryman - retorna todos os entregadores disponíveis
+- `GET` /client/deliveries - exige um Bearer token do usuário e retornar todos os deliveries do usuário
 
-`PATCH` /deliveryman - altera o status do entregador entre disponível e offline
+### Deliveryman
 
-`POST` /deliveryman/deliveries - exige um Bearer token do entregador e retorna todos os deliveries finalizados por esse entregador
+- `POST` /deliveryman - recebe o `username` e `password` pelo corpo da requisição, cria um novo entregador e retornar o entregador criado
 
-`POST` /deliveryman/authenticate - recebe o `username` e `password` pelo corpo da requisição, e cria um token de autentição do entregador.
+- `GET` /deliveryman - retorna todos os entregadores disponíveis
+
+- `PATCH` /deliveryman - altera o status do entregador entre disponível e offline
+
+- `POST` /deliveryman/deliveries - exige um Bearer token do entregador e retorna todos os deliveries finalizados por esse entregador
+
+### Delivery
 
 `POST` /delivery - recebe o item do usuario pelo corpo da requisição, o bearer token do usuário e cria o pedido do usuário e retorna esse pedido
 
